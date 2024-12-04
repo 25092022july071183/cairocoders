@@ -1,19 +1,20 @@
 
+
 --
--- Table structure for table `city`
+-- Table structure for table `cities`
 --
 
-CREATE TABLE `city` (
+CREATE TABLE `cities` (
   `id` int(11) NOT NULL,
   `name` varchar(150) NOT NULL,
-  `stateid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `state_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `city`
+-- Dumping data for table `cities`
 --
 
-INSERT INTO `city` (`id`, `name`, `stateid`) VALUES
+INSERT INTO `cities` (`id`, `name`, `state_id`) VALUES
 (1, 'Anaheim', 8),
 (2, 'Arden-Arcade', 8),
 (3, 'Bakersfield', 8),
@@ -31,15 +32,15 @@ INSERT INTO `city` (`id`, `name`, `stateid`) VALUES
 --
 
 CREATE TABLE `countries` (
-  `ID` int(11) NOT NULL,
-  `countryName` varchar(255) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `countries`
 --
 
-INSERT INTO `countries` (`ID`, `countryName`) VALUES
+INSERT INTO `countries` (`id`, `name`) VALUES
 (1, 'Afghanistan'),
 (2, 'Albania'),
 (3, 'Algeria'),
@@ -238,22 +239,21 @@ INSERT INTO `countries` (`ID`, `countryName`) VALUES
 (196, 'Zimbabwe');
 
 -- --------------------------------------------------------
-
 --
--- Table structure for table `state`
+-- Table structure for table `states`
 --
 
-CREATE TABLE `state` (
-  `id` int(11) NOT NULL,
-  `name` varchar(150) NOT NULL,
+CREATE TABLE `states` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `country_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `state`
+-- Dumping data for table `states`
 --
 
-INSERT INTO `state` (`id`, `name`, `country_id`) VALUES
+INSERT INTO `states` (`id`, `name`, `country_id`) VALUES
 (1, 'ARMM', 139),
 (2, 'Bicol', 139),
 (3, 'Central Luzon', 139),
@@ -265,41 +265,3 @@ INSERT INTO `state` (`id`, `name`, `country_id`) VALUES
 (9, 'Florida', 186);
 
 -- --------------------------------------------------------
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `city`
---
-ALTER TABLE `city`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `countries`
---
-ALTER TABLE `countries`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `state`
---
-ALTER TABLE `state`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `city`
---
-ALTER TABLE `city`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `state`
---
-ALTER TABLE `state`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
